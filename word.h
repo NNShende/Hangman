@@ -11,11 +11,12 @@ private:
     string value;
     int length;
     vector<bool> guessed;
+    vector<bool> alphabet;
 public:
     Word(string s);
     string output();
     string getString();
-    bool guess(char c);
+    int guess(char c);
 };
 
 #endif
