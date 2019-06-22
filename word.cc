@@ -27,8 +27,8 @@ std::string Word::output(){
 }
 
 int Word::guess(char c){
-    if(c < 'a' || c > 'z') throw "ERROR: Not a lowercase letter";
-    if(alphabet.at(c - 'a') == true) throw "ERROR: Letter has already been guessed";
+    if(c < 'a' || c > 'z') throw std::string("ERROR: Not a lowercase letter");
+    if(alphabet.at(c - 'a') == true) throw std::string("ERROR: Letter has already been guessed");
     int count = 0;
     alphabet.at(c - 'a') = true;
     for(int i = 0; i < length; ++i){
