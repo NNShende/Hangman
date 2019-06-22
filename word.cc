@@ -2,7 +2,7 @@
 #include <vector>
 #include "word.h"
 
-Word::Word(string s){
+Word::Word(std::string s){
     value = s;
     length = s.length();
     for(int i = 0; i < length; ++i){
@@ -13,12 +13,12 @@ Word::Word(string s){
     }
 }
 
-string Word::getString(){
+std::string Word::getString(){
     return value;
 }
 
-string Word::output(){
-    string retval = "";
+std::string Word::output(){
+    std::string retval = "";
     for(int i = 0; i < length; ++i){
         if(guessed.at(i)) retval += value[i];
         else retval += "_";
