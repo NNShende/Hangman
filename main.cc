@@ -40,6 +40,7 @@ void playGame(std::string word){
         }
         if(gameWord.isGuessed()){
             std::cout << "You Win!" << std::endl;
+            std::cout << "The word was: " << gameWord.getString() << "." << endl;
             std::cout << "You had " << guesses << " guesses before the man was hung." << std::endl;
         }
     }
