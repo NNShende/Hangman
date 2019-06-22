@@ -17,6 +17,9 @@ public:
     string output();
     string getString();
     int guess(char c);
+    bool isGuessed();
 };
+
+ostream & operator<<(ostream &out, Word &w);
 
 #endif

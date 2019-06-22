@@ -39,3 +39,15 @@ int Word::guess(char c){
     }
     return count;
 }
+
+bool Word::isGuessed(){
+    for(auto a:guessed){
+        if(!a) return false;
+    }
+    return true;
+}
+
+ostream & operator<<(ostream &out, Word &w){
+    out << w.output();
+    return out;
+}
