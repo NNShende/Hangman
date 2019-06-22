@@ -47,13 +47,27 @@ void playGame(std::string word){
 }
 
 
-int main(){
+int main(int argC, const char* argv[]){
+    if(argC > 2){
+        std::cerr << "ERROR: invalid argument count. 0 or 1 arguments only." << std::endl;
+        std::cerr << "Usage: ./hangman [wordfile]" << std::endl;
+        return 1;
+    }
     bool playAgain = true;
     srand(time(0));
+    std::ifstream wordfile;
     while(playAgain){
         int r = ((double) rand() / (RAND_MAX)) * FILE_LENGTH + 1;
         std::string s;
-        std::ifstream wordfile("words.txt");
+        try{
+            string filename = "words.txt";
+            if(argC == 2) filename = argv[1];
+            wordfile = ifstream(filename);
+        }
+        catch(...){
+            std::cerr << "ERROR: file not found. Exiting program." << std::endl;
+            return 1; 
+        }
         for(int i = 0; i < r; ++i){
             getline(wordfile,s);
         }
